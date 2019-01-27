@@ -1,8 +1,15 @@
 #!/usr/bin/python3
 from flask import Flask, render_template
+import os
+
 ledRed="This is red led"
+
 app = Flask(__name__)
 @app.route('/')
+
+def login():
+    return render_template('login.html')
+
 def index():        
     return render_template('index.html')
 @app.route('/<deviceName>/<action>')
@@ -21,6 +28,7 @@ def do(deviceName, action):
 @app.route('/plots')
 def plots():
 	return render_template('plots.html')
+
 
 
 if __name__ == '__main__':       
