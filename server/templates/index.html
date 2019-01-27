@@ -1,14 +1,9 @@
-<html>
-<head>
-<title> GPIO Control Web App</title>
-<link rel="styleSheet" href="/static/style.css"/>
-</head>
-<body>
+{% extends 'layout.html' %}
+{% block body %}
 <h1>Actuators</h1><br>
 <h2>Status</h2>
 <h3> RED LED --> {{ledRed}}</h3>
 <h2>Led Control</h2>
 <h3> RED LED CNTRL ==> <a href ="/ledRed/on" class="button">TURN ON</a> <a href="/ledRed/off" class = "button">TURN OFF</a></h3>
 <h3> PLOTS <a href ="/plots"> Plots </a> </h3>
-</body>
-</html>
+{% endblock %}
