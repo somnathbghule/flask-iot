@@ -33,15 +33,16 @@
   <img class="mb-4" src="static/images/iconfinder-icon.svg" alt="" width="100" height="100">
   <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
   <label for="Username" class="sr-only">Username</label>
-  <input type="text" placeholder="Username" name="userId" value="{{ request.form.userId }}" class="form-control"  required autofocus>
+  <input type="text" placeholder="Username" name="userId" value="{{ request.form.userId }}" class="form-control"   autofocus>
   <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" name="userPassword" value="{{ request.form.userPassword }}"  class="form-control" placeholder="Password" required>
+  <input type="password" name="userPassword" value="{{ request.form.userPassword }}"  class="form-control" placeholder="Password" >
   <div class="checkbox mb-3">
     <label>
       <input type="checkbox" value="remember-me"> Remember me
     </label>
   </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit" value="submit">Sign in</button>
+  <button name="signin" class="btn btn-lg btn-primary btn-block" type="submit" value="submit">Sign in</button>
+  <button name="register" class="btn btn-lg btn-primary btn-block" type="submit" value="submit">Register</button>
   <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
 </form>
 </body>

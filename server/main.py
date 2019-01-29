@@ -20,15 +20,20 @@ def login():
 
 @app.route('/authenticate', methods = ['POST', 'GET'])
 def authenticate():
+   print(request)     
+   print (request.form)
+   print(request.form['register'])
    if request.method == 'POST':
-       if request.form['userId'] == 'admin' or request.form['userPassword'] == 'admin':
-           signed_in=true
+       if request.form['signin'] == 'submit':
+           if request.form['userId'] == 'admin' and request.form['userPassword'] == 'admin':
+               return render_template('index.html')
+           else:
+    	       return render_template('login.html')
+       elif request.form['register'] == 'submit':
+           print("register page")
+           return render_template('register.html')
        else:
-            print ("invalid credentials...");
-   if signed_in==false:
-    	return render_template('login.html')
-   else:
-       return render_template('index.html')
+           print("Invalid action")
 	
 @app.route('/index')
 def index():        
