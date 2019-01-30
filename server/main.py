@@ -10,6 +10,7 @@ ledRed="This is red led"
 app = Flask(__name__)
 @app.route('/')
 
+
 @app.route('/login',methods = ['POST', 'GET'])
 def login():
     print("login called---------", signed_in)	
@@ -18,23 +19,21 @@ def login():
     else:
         return render_template('index.html')
 
-@app.route('/authenticate', methods = ['POST', 'GET'])
+@app.route('/signup', methods = ['POST', 'GET'])
+def signup():
+    print ("sign up called")
+    return render_template('signup.html')
+
+@app.route('/authenticate', methods = ['POST'])
 def authenticate():
-   print(request)     
-   print (request.form)
-   print(request.form['register'])
+   print("authenticat called")    
    if request.method == 'POST':
        if request.form['signin'] == 'submit':
            if request.form['userId'] == 'admin' and request.form['userPassword'] == 'admin':
                return render_template('index.html')
            else:
     	       return render_template('login.html')
-       elif request.form['register'] == 'submit':
-           print("register page")
-           return render_template('register.html')
-       else:
-           print("Invalid action")
-	
+
 @app.route('/index')
 def index():        
     return render_template('index.html')
