@@ -15,3 +15,4 @@ sudo apt-get install libatlas-base-dev
 
 pip3 install pandas
 
+pip3 install matplotlib
