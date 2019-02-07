@@ -5,6 +5,9 @@
 
 sudo apt-get install python3-pip
 
+sudo apt-get install python3-flask
+
+
 pip3 install flask-mysqldb
 
 pip3 install Flask-SQLAlchemy
