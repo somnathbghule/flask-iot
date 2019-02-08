@@ -7,7 +7,7 @@ from Emailer import MailSender
 class Support():
     def __init__(self, subject, body, attachments):
         self.__send_from=EmailId('somnath.bhaskar.ghule@gmail.com','Admin@123')
-        self.__send_to=['somnathbghule@gmail.com']
+        self.__send_to=['somnath.bhaskar.ghule@gmail.com']
         self.__server=Server('smtp.gmail.com', 465)
         self.__subject=subject
         self.__attachments=attachments

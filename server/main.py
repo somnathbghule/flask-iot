@@ -1,6 +1,10 @@
 #!/usr/bin/python3
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, g, current_app
 import os
+import sqlite3
+from support_files.Sqlite import SqliteDatabase
+
+
 false=0
 true=1
 signed_in=false
@@ -55,7 +59,21 @@ def plots():
 	print ("plot something")
 	return render_template('plots.html')
 
+def get_db():
+	with app.app_context():
+		db = getattr(g, '_database', None)
+		if db is None:
+			db = g._database = sqlite3.connect("support_files/ia_iot.db")
+		return db
 
+@app.teardown_appcontext
+def close_connection(exception):
+	print("connection close")
+	db = getattr(g, '_database', None)
+	if db is not None:
+		db.close()
 
-if __name__ == '__main__':       
-    app.run(debug=True, host='0.0.0.0')
+if __name__ == '__main__':
+	#db=get_db()
+	#sql=SqliteDatabase();
+	app.run(debug=True, host='0.0.0.0')
