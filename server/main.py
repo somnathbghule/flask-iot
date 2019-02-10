@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 from flask import Flask, render_template, request, g, current_app
 import os
+import sys
+sys.path.append(os.path.abspath('support_files'))
 import sqlite3
 from support_files.Sqlite import SqliteDatabase
-
+from support_files.IoTSupport import Warn, LogDebug
 
 false=0
 true=1
@@ -17,7 +19,7 @@ app = Flask(__name__)
 
 @app.route('/login',methods = ['POST', 'GET'])
 def login():
-    print("login called---------", signed_in)	
+    LogDebug("login called"); 
     if signed_in==false:
         return render_template('login.html')
     else:
@@ -73,7 +75,9 @@ def close_connection(exception):
 	if db is not None:
 		db.close()
 
+
 if __name__ == '__main__':
 	#db=get_db()
 	#sql=SqliteDatabase();
-	app.run(debug=True, host='0.0.0.0')
+    LogDebug("app.run")
+    app.run(debug=True, host='0.0.0.0')
