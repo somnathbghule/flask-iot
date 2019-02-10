@@ -3,6 +3,7 @@
 from flask import g
 import sqlite3
 import os
+from IoTSupport import LogDebug
 
 class Job():
     def __init__(self, jobid, id):
@@ -13,14 +14,23 @@ class Job():
     def id(self):
         return self.__id
 
+class Employee():
+	def __init__(self,eid, ename):
+		self.eid_=eid
+		self.ename_=ename
+	def eid(self):
+		return self.eid_
+	def ename(self):
+		return self.ename_
+		
+
 class SqliteDatabase():
-    def __init__(self):
+    def __init__(self, get_db, close_db):
         self.dbName_= os.path.dirname(os.path.abspath(__file__)) +"/ia_iot.db"
-        self.conn_=sqlite3.connect(self.dbName_)
+        self.conn_=get_db(self.dbName_)
         self.cur_=self.conn_.cursor()
         self.dhtTableName_="DHT_data"
-        print("database opened sucessfully.")
-        print("sqlite"+__name__)
+        self.close_db=close_db
     def DHTTableName(self):
         return self.dhtTableName_
     def EmployeeTableName(self):
@@ -35,7 +45,7 @@ class SqliteDatabase():
         self.cur_.execute("DROP TABLE IF EXISTS %s" % (self.DHTTableName()))
         self.cur_.execute("CREATE TABLE DHT_data(timestamp DATETIME, temp NUMERIC, hum NUMERIC)")
         self.conn_.commit()
-        print("DHT_data table created sucessfully.")
+        LogDebug("DHT_data table created sucessfully.")
     
     def AddTODHTTable(self, temp, hum):
         self.cur_.execute("INSERT INTO DHT_data values(datetime('now'), (?), (?))", (temp, hum))
@@ -49,7 +59,15 @@ class SqliteDatabase():
     def AddTOEmployeeTable(self, id, name):
         self.cur_.execute("INSERT INTO Employee_data values((?), (?))", (id, name))
         self.conn_.commit()
-    
+
+    def GetAllFromEmployeeTable(self):
+        self.cur_.execute("select * from %s" % (self.EmployeeTableName()))
+        rows=self.cur_.fetchall()
+        employees=[]
+        for row in rows:
+            print(row[0])
+            employees.append(Employee(row[0], row[1]))
+			
     def CreateJobTable(self):
         self.cur_.execute("DROP TABLE IF EXISTS %s" % (self.JobTableName()))
         self.cur_.execute("CREATE TABLE %s(JOBID INT PRIMARY KEY NOT NULL, ID INT NOT NULL)"%(self.JobTableName()))
@@ -64,8 +82,7 @@ class SqliteDatabase():
             self.conn_.commit()
     
     def __del__(self):
-        print("database closed sucessfully.")
-        self.conn_.close(); 
+        self.close_db() 
 
 if __name__=='__main__':
     litedb=SqliteDatabase()

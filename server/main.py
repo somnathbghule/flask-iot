@@ -42,6 +42,7 @@ def authenticate():
 
 @app.route('/index')
 def index():        
+    sql=SqliteDatabase(get_db, close_db)
     return render_template('index.html')
 @app.route('/<deviceName>/<action>')
 def do(deviceName, action):
@@ -58,26 +59,26 @@ def do(deviceName, action):
 
 @app.route('/plots')
 def plots():
-	print ("plot something")
+	LogDebug ("plot something")
+	sql=SqliteDatabase(get_db, close_db)
+	sql.GetAllFromEmployeeTable()	
 	return render_template('plots.html')
 
-def get_db():
+def get_db(db_name):
 	with app.app_context():
 		db = getattr(g, '_database', None)
 		if db is None:
-			db = g._database = sqlite3.connect("support_files/ia_iot.db")
+			db = g._database = sqlite3.connect(db_name)
+			LogDebug("data base opened: "+db_name)
 		return db
 
-@app.teardown_appcontext
-def close_connection(exception):
-	print("connection close")
+def close_db():
 	db = getattr(g, '_database', None)
+	LogDebug("close_db called.")
 	if db is not None:
+		LogDebug("connection closed.")
 		db.close()
 
 
 if __name__ == '__main__':
-	#db=get_db()
-	#sql=SqliteDatabase();
-    LogDebug("app.run")
     app.run(debug=True, host='0.0.0.0')
