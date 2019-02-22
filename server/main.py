@@ -2,7 +2,7 @@
 from flask import Flask, render_template, request, g, current_app
 import os
 import sys
-sys.path.append(os.path.abspath('support_files'))
+sys.path.append(os.path.abspath(os.path.dirname(os.path.realpath(__file__)) + '/support_files'))
 import sqlite3
 from support_files.Sqlite import SqliteDatabase
 from support_files.IoTSupport import Warn, LogDebug
