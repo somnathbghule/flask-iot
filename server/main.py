@@ -6,6 +6,8 @@ sys.path.append(os.path.abspath(os.path.dirname(os.path.realpath(__file__)) + '/
 import sqlite3
 from support_files.Sqlite import SqliteDatabase
 from support_files.IoTSupport import Warn, LogDebug
+import logging
+from logging.handlers import RotatingFileHandler
 
 false=0
 true=1
@@ -59,10 +61,10 @@ def do(deviceName, action):
 
 @app.route('/plots')
 def plots():
-	LogDebug ("plot something")
-	sql=SqliteDatabase(get_db, close_db)
-	sql.GetAllFromEmployeeTable()	
-	return render_template('plots.html')
+    LogDebug ("plot something")
+    sql=SqliteDatabase(get_db, close_db)
+    sql.GetAllFromEmployeeTable()
+    return render_template('plots.html')
 
 def get_db(db_name):
 	with app.app_context():
@@ -81,4 +83,7 @@ def close_db():
 
 
 if __name__ == '__main__':
+    #handler = RotatingFileHandler('foo.log', maxBytes=10000, backupCount=1)
+    #handler.setLevel(logging.INFO)
+    #app.logger.addHandler(handler)
     app.run(debug=True, host='0.0.0.0')
