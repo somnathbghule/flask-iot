@@ -32,9 +32,9 @@ def signup():
     print ("sign up called")
     return render_template('signup.html')
 
-@app.route('/authenticate', methods = ['POST'])
+@app.route('/authenticat', methods = ['POST'])
 def authenticate():
-   print("authenticat called")    
+   LogDebug("authenticat called")    
    if request.method == 'POST':
        if request.form['signin'] == 'submit':
            if request.form['userId'] == 'admin' and request.form['userPassword'] == 'admin':
@@ -51,11 +51,11 @@ def do(deviceName, action):
 	if deviceName == 'ledRed':
 		actuator=ledRed
 	if action == 'on':
-		print("on the led red.")
+		LogDebug("on the led red.")
 	if action == 'off':
-		print("off the led red.")
+		LogDebug("off the led red.")
 	templateData={
-		'ledRed': 'On'
+		'ledRed': action
 	}
 	return render_template('index.html', **templateData )
 
