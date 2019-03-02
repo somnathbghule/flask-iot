@@ -32,3 +32,10 @@ Mar 02 04:26:32 raspberrypi Sensor __init__ called.
 Mar 02 04:26:44 raspberrypi Sensors Called.
 Mar 02 04:26:44 raspberrypi PIR __init__ called.
 Mar 02 04:26:44 raspberrypi Sensor __init__ called.
+Mar 02 04:37:55 raspberrypi off the led red.
+Mar 02 04:37:58 raspberrypi on the led red.
+Mar 02 04:38:01 raspberrypi off the led red.
+Mar 02 04:38:16 raspberrypi login called
+Mar 02 04:38:29 raspberrypi authenticat called
+Mar 02 04:38:33 raspberrypi off the led red.
+Mar 02 04:38:34 raspberrypi on the led red.
