@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from IoTSupport import LogDebug
+from gpiozero import LED
 
 class Sensor():
     def __init__(self):

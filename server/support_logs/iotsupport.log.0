@@ -9,3 +9,26 @@ Feb 28 22:04:12 msys-VirtualBox PIR __init__ called.
 Feb 28 22:04:25 msys-VirtualBox Sensors Called.
 Feb 28 22:04:25 msys-VirtualBox PIR __init__ called.
 Feb 28 22:04:25 msys-VirtualBox Sensor __init__ called.
+Mar 02 03:50:49 raspberrypi Sensors Called.
+Mar 02 03:50:49 raspberrypi PIR __init__ called.
+Mar 02 03:50:49 raspberrypi Sensor __init__ called.
+Mar 02 03:51:44 raspberrypi Sensors Called.
+Mar 02 03:51:44 raspberrypi PIR __init__ called.
+Mar 02 03:51:44 raspberrypi Sensor __init__ called.
+Mar 02 04:17:13 raspberrypi login called
+Mar 02 04:17:13 raspberrypi login called
+Mar 02 04:17:20 raspberrypi authenticat called
+Mar 02 04:21:17 raspberrypi on the led red.
+Mar 02 04:21:19 raspberrypi off the led red.
+Mar 02 04:21:20 raspberrypi plot something
+Mar 02 04:21:20 raspberrypi data base opened: /home/pi/flask-iot/server/support_files/ia_iot.db
+Mar 02 04:21:20 raspberrypi close_db called.
+Mar 02 04:24:39 raspberrypi Sensors Called.
+Mar 02 04:24:39 raspberrypi PIR __init__ called.
+Mar 02 04:24:39 raspberrypi Sensor __init__ called.
+Mar 02 04:26:32 raspberrypi Sensors Called.
+Mar 02 04:26:32 raspberrypi PIR __init__ called.
+Mar 02 04:26:32 raspberrypi Sensor __init__ called.
+Mar 02 04:26:44 raspberrypi Sensors Called.
+Mar 02 04:26:44 raspberrypi PIR __init__ called.
+Mar 02 04:26:44 raspberrypi Sensor __init__ called.

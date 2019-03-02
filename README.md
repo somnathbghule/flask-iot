@@ -7,6 +7,7 @@ sudo apt-get install python3-pip
 
 sudo apt-get install python3-flask
 
+sudo apt install python3-gpiozero
 
 #pip3 install flask-mysqldb
 
