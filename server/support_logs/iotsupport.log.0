@@ -39,3 +39,82 @@ Mar 02 04:38:16 raspberrypi login called
 Mar 02 04:38:29 raspberrypi authenticat called
 Mar 02 04:38:33 raspberrypi off the led red.
 Mar 02 04:38:34 raspberrypi on the led red.
+Mar 02 05:00:49 raspberrypi Sensors Called.
+Mar 02 05:00:49 raspberrypi Sensor __init__ called.
+Mar 02 05:01:19 raspberrypi Sensors Called.
+Mar 02 05:01:19 raspberrypi Sensor __init__ called.
+Mar 02 05:05:33 raspberrypi Sensors Called.
+Mar 02 05:05:33 raspberrypi Sensor __init__ called.
+Mar 02 05:10:26 raspberrypi Sensors Called.
+Mar 02 05:10:26 raspberrypi Sensor __init__ called.
+Mar 02 05:13:07 raspberrypi Sensors Called.
+Mar 02 05:13:07 raspberrypi Sensor __init__ called.
+Mar 02 05:13:44 raspberrypi Sensors Called.
+Mar 02 05:13:44 raspberrypi Sensor __init__ called.
+Mar 02 05:13:44 raspberrypi <gpiozero.LED object on pin GPIO17, active_high=True, is_active=False>
+Mar 02 05:14:12 raspberrypi Sensors Called.
+Mar 02 05:14:12 raspberrypi Sensor __init__ called.
+Mar 02 05:14:12 raspberrypi GPIO17
+Mar 02 05:15:08 raspberrypi Sensors Called.
+Mar 02 05:15:08 raspberrypi Sensor __init__ called.
+Mar 02 05:15:08 raspberrypi False
+Mar 02 05:15:39 raspberrypi Sensors Called.
+Mar 02 05:15:39 raspberrypi Sensor __init__ called.
+Mar 02 05:15:39 raspberrypi None
+Mar 02 05:15:39 raspberrypi True
+Mar 02 05:16:24 raspberrypi Sensors Called.
+Mar 02 05:16:24 raspberrypi Sensor __init__ called.
+Mar 02 05:16:24 raspberrypi None
+Mar 02 05:16:24 raspberrypi True
+Mar 02 05:18:19 raspberrypi on the led red.
+Mar 02 05:18:21 raspberrypi off the led red.
+Mar 02 05:18:22 raspberrypi on the led red.
+Mar 02 05:18:25 raspberrypi plot something
+Mar 02 05:18:25 raspberrypi data base opened: /home/pi/flask-iot/server/support_files/ia_iot.db
+Mar 02 05:18:25 raspberrypi close_db called.
+Mar 02 05:18:28 raspberrypi off the led red.
+Mar 02 05:34:01 raspberrypi Sensors Called.
+Mar 02 05:34:01 raspberrypi GPIO5
+Mar 02 05:34:20 raspberrypi Sensors Called.
+Mar 02 05:34:20 raspberrypi GPIO10
+Mar 02 05:37:24 raspberrypi Sensors Called.
+Mar 02 05:39:00 raspberrypi Sensors Called.
+Mar 02 05:39:00 raspberrypi GPIO5
+Mar 02 05:39:00 raspberrypi GPIO13
+Mar 02 05:42:01 raspberrypi Sensors Called.
+Mar 02 05:42:01 raspberrypi GPIO5
+Mar 02 05:42:02 raspberrypi GPIO13
+Mar 02 05:42:02 raspberrypi False
+Mar 02 10:56:34 raspberrypi Sensors Called.
+Mar 02 10:56:34 raspberrypi GPIO5
+Mar 02 10:56:34 raspberrypi GPIO13
+Mar 02 10:56:34 raspberrypi False
+Mar 02 10:56:34 raspberrypi 0.0004885197850512668
+Mar 02 10:58:34 raspberrypi Sensors Called.
+Mar 02 10:58:34 raspberrypi GPIO5
+Mar 02 10:58:34 raspberrypi GPIO13
+Mar 02 10:58:34 raspberrypi False
+Mar 02 10:58:34 raspberrypi 0.0004885197850512668
+Mar 02 11:02:01 raspberrypi Sensors Called.
+Mar 02 11:02:01 raspberrypi GPIO5
+Mar 02 11:02:01 raspberrypi GPIO13
+Mar 02 11:02:01 raspberrypi False
+Mar 02 11:02:01 raspberrypi 0.0004885197850512668
+Mar 02 11:04:23 raspberrypi Sensors Called.
+Mar 02 11:04:42 raspberrypi Sensors Called.
+Mar 02 11:04:42 raspberrypi <gpiozero.CPUTemperature temperature=45.46>
+Mar 02 11:06:32 raspberrypi Sensors Called.
+Mar 02 11:06:32 raspberrypi 45.464
+Mar 02 11:07:27 raspberrypi Sensors Called.
+Mar 02 11:07:27 raspberrypi 45.464
+Mar 02 11:07:48 raspberrypi Sensors Called.
+Mar 02 11:07:48 raspberrypi 45.464
+Mar 02 11:08:32 raspberrypi Sensors Called.
+Mar 02 11:08:32 raspberrypi 45.464
+Mar 02 11:08:32 raspberrypi False
+Mar 02 11:09:05 raspberrypi Sensors Called.
+Mar 02 11:09:05 raspberrypi 44.926
+Mar 02 11:09:05 raspberrypi -0.12684999999999996
+Mar 02 12:19:32 raspberrypi Sensors Called.
+Mar 02 12:19:32 raspberrypi 42.236
+Mar 02 12:19:32 raspberrypi -0.18064999999999998

@@ -1,16 +1,33 @@
 #!/usr/bin/python3
 from IoTSupport import LogDebug
-from gpiozero import LED
+from gpiozero import LED, CPUTemperature, MotionSensor, MCP3008
 
-class Sensor():
+class Sensors():
     def __init__(self):
-        LogDebug("Sensor __init__ called.")
-
-class PIR(Sensor):
-    def __init__(self):
-        LogDebug("PIR __init__ called.")
-        super().__init__();
+        self.gpioPins_ = {
+            'led':5,
+            'pir1':13,
+            'pir2':17
+        }
+        self.led_ = LED(self.gpioPins_['led']) #for LED
+        self.motion_ = MotionSensor(self.gpioPins_['pir1'])  #for PIR1
+        self.curret_ = MCP3008(channel=0)  #ACS 11
+        self.cpu_ = CPUTemperature(min_temp=50, max_temp=90) #CPU Info
+    def led(self):
+        return self.led_
+    def motion(self):
+        return self.motion_;
+    def current(self):
+        return self.curret_;
+    def cpu(self):
+        return self.cpu_;
         
 if __name__ == '__main__':
     LogDebug("Sensors Called.")
-    pir=PIR()
+    sensor=Sensors()
+    #LogDebug(sensor.led().pin);
+    #LogDebug(sensor.motion().pin);
+    #LogDebug(sensor.motion().value);
+    #LogDebug(sensor.current().value);
+    LogDebug(sensor.cpu().temperature)
+    LogDebug(sensor.cpu().value)
