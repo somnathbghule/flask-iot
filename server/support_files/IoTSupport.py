@@ -70,7 +70,9 @@ months=["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "N
 class LogDebug(Support):
     def __init__(self, message):
         fp = open(Support.supportLog(),"a")
-        log=months[int(datetime.now().strftime("%m"))-1]+" "+datetime.now().strftime("%d %H:%M:%S") +" "+socket.gethostname()+" "+ message
+        message = "\""+str(message)+"\""
+        log="["
+        log+=months[int(datetime.now().strftime("%m"))-1]+" "+datetime.now().strftime("%d %H:%M:%S") +"] "+socket.gethostname()+" "+ message
         log+="\n"
         fp.write(log)
         fp.close()

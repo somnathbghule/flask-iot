@@ -16,25 +16,28 @@ signed_in=false
 ledRed="This is red led"
 
 app = Flask(__name__)
-@app.route('/')
+def myfun():
+    LogDebug("action called")
 
+@app.route('/')
 
 @app.route('/login',methods = ['POST', 'GET'])
 def login():
     LogDebug("login called"); 
     if signed_in==false:
-        return render_template('login.html')
+        return render_template('login.html', **templateData)
     else:
-        return render_template('index.html')
+        return render_template('index.html', **templateData)
+
 
 @app.route('/signup', methods = ['POST', 'GET'])
 def signup():
     print ("sign up called")
     return render_template('signup.html')
 
-@app.route('/authenticate', methods = ['POST'])
+@app.route('/authenticat', methods = ['POST'])
 def authenticate():
-   print("authenticat called")    
+   LogDebug("authenticat called")    
    if request.method == 'POST':
        if request.form['signin'] == 'submit':
            if request.form['userId'] == 'admin' and request.form['userPassword'] == 'admin':
@@ -44,18 +47,23 @@ def authenticate():
 
 @app.route('/index')
 def index():        
+    templateData={
+        'fun':myfun
+    }
     sql=SqliteDatabase(get_db, close_db)
-    return render_template('index.html')
+    return render_template('index.html', **templateData)
 @app.route('/<deviceName>/<action>')
 def do(deviceName, action):
+	LogDebug(glob_var)
 	if deviceName == 'ledRed':
 		actuator=ledRed
 	if action == 'on':
-		print("on the led red.")
+		LogDebug("on the led red.")
 	if action == 'off':
-		print("off the led red.")
+		LogDebug("off the led red.")
 	templateData={
-		'ledRed': 'On'
+		'ledRed': action,
+        'fun':myfun
 	}
 	return render_template('index.html', **templateData )
 
@@ -80,6 +88,16 @@ def close_db():
 	if db is not None:
 		LogDebug("connection closed.")
 		db.close()
+
+#for defining global variables
+with app.app_context():
+    LogDebug (app.name + " Application Started.")
+    glob_var=100
+
+@app.teardown_appcontext
+def teardown_app(exception):
+    LogDebug (app.name + " url: ")
+    #LogDebug (request.url)
 
 
 if __name__ == '__main__':
