@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 from IoTSupport import LogDebug
+#import RPi.gpio as gpio
 from gpiozero import LED, CPUTemperature, MotionSensor, MCP3008, OutputDevice
+from time import sleep
+from signal import pause
 
 gpioPins = {
     'LED':5,
@@ -53,7 +56,7 @@ class StepperMotor():
             else:
                 xPin.off()
         self.stepCounter += self.stepDir
-        if self.stepCounter_ > = self.stepCount_:
+        if self.stepCounter_ >= self.stepCount_:
             self.stepCounter_ = 0
         if self.stepCounter_ < 0 :
             self.stepCounter_=self.stepCount_+self.stepDir_
@@ -73,13 +76,48 @@ class Sensors():
         return self.curret_;
     def cpu(self):
         return self.cpu_;
-        
+
+def motion_detected():
+    LogDebug("M Detected")
+def Test_MOTION(motion, led):
+    LogDebug(motion.pin)
+    LogDebug(motion.value);
+    motion.wait_for_motion()
+    LogDebug("motion detected")
+    LogDebug(motion.value);
+    motion.when_motion = led.on
+    motion.when_no_motion = led.off
+    #motion.when_motion = motion_detected
+    #while True:
+    #    #LogDebug("Ready");
+    #    if motion.motion_detected:
+    #        LogDebug("motion detected")
+    pause()
+    
+def Test_LED(led):
+    LogDebug(led.pin)
+    while True:
+        led.on()
+        sleep(1)
+        led.off()
+        sleep(1)
 if __name__ == '__main__':
     LogDebug("Sensors Called.")
-    sensor=Sensors()
-    #LogDebug(sensor.led().pin);
+    #gpio.write(13, 0)
+    sensor = Sensors()
+    led = sensor.led()
+    motion =  sensor.motion()
+    #led.blink()
+    Test_MOTION(motion, led)
+    pause()
+    #while True:
+    #    led.on()
+    #    sleep (1)
+    #    led.off()
+    #    sleep(1)
+    #led.on()
     #LogDebug(sensor.motion().pin);
     #LogDebug(sensor.motion().value);
     #LogDebug(sensor.current().value);
-    LogDebug(sensor.cpu().temperature)
-    LogDebug(sensor.cpu().value)
+    #LogDebug(sensor.cpu().temperature)
+    #LogDebug(sensor.cpu().value)
