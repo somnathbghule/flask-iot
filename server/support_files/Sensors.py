@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from IoTSupport import LogDebug
-from gpiozero import LED, CPUTemperature, MotionSensor, MCP3008, OutputDevice
+from gpiozero import LED, CPUTemperature, MotionSensor, MCP3008, OutputDevice, MCP3008
 
 gpioPins = {
     'LED':5,

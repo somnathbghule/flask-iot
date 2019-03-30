@@ -68,7 +68,7 @@ def do(deviceName, action):
 def plots():
     LogDebug ("plot something")
     sql=SqliteDatabase(get_db, close_db)
-    sql.GetAllFromEmployeeTable()
+    LogDebug(sql.GetAllFromEmployeeTable())
     return render_template('plots.html')
 
 @app.route('/chart')

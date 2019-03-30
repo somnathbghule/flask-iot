@@ -65,8 +65,9 @@ class SqliteDatabase():
         rows=self.cur_.fetchall()
         employees=[]
         for row in rows:
-            print(row[0])
+            #print(row[0])
             employees.append(Employee(row[0], row[1]))
+        return employees
 			
     def CreateJobTable(self):
         self.cur_.execute("DROP TABLE IF EXISTS %s" % (self.JobTableName()))
