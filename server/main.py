@@ -5,7 +5,7 @@ import sys
 sys.path.append(os.path.abspath(os.path.dirname(os.path.realpath(__file__)) + '/support_files'))
 import sqlite3
 from support_files.Sqlite import SqliteDatabase
-from support_files.IoTSupport import Warn, LogDebug
+from support_files.IoTSupport import Warn, LogDebug, Support
 import logging
 from logging.handlers import RotatingFileHandler
 
@@ -116,6 +116,10 @@ def close_db():
 
 #for defining global variables
 with app.app_context():
+    if not os.path.isdir( Support.supportLogDir_ ):
+        os.mkdir(Support.supportLogDir_)
+        open(Support.supportLogF_, 'a').close()
+        LogDebug( Support.supportLogDir_ + " created.");
     LogDebug (app.name + " Application Started.")
     glob_var=100
     templateData={
@@ -132,4 +136,5 @@ if __name__ == '__main__':
     #handler = RotatingFileHandler('foo.log', maxBytes=10000, backupCount=1)
     #handler.setLevel(logging.INFO)
     #app.logger.addHandler(handler)
+
     app.run(debug=True, host='0.0.0.0')

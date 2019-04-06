@@ -32,7 +32,7 @@ class Support():
                 return True
         return False
     def logRotate():
-        dir= Support.supportLogDir_ 
+        dir = Support.supportLogDir_ 
         files = os.listdir(dir)
         if not Support.supportBundle:
             for srcFile in sorted(files, reverse=True):
