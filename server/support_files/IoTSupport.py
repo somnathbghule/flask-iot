@@ -10,7 +10,8 @@ import time
 from datetime import datetime, timedelta
 
 class Support():
-    supportLogF_=os.path.dirname(os.path.abspath(__file__)) +'/../support_logs/iotsupport.log.0'
+    supportLogDir_ = '/var/log/iosupport'
+    supportLogF_= supportLogDir_ + '/iotsupport.log.0'
     supportBundle=[supportLogF_]
     def __init__(self, subject, body, attachments):
         self.__send_from=EmailId('somnath.bhaskar.ghule@gmail.com','Admin@123')
@@ -31,7 +32,7 @@ class Support():
                 return True
         return False
     def logRotate():
-        dir=os.path.dirname(os.path.abspath(__file__)) +'/../support_logs'
+        dir= Support.supportLogDir_ 
         files = os.listdir(dir)
         if not Support.supportBundle:
             for srcFile in sorted(files, reverse=True):
